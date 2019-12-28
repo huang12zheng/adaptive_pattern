@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:adaptive_widget/adaptive_widget.dart';
 import 'package:adaptive_widget/src/watch_list/watch_list.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ void main() {
     expect((element.widget as AnimatedCrossFade).crossFadeState,CrossFadeState.showSecond);  
   });
 
-  testWidgets('Watch Item1 scroll', (WidgetTester tester) async{
+  testWidgets('Watch Item1 auto scroll', (WidgetTester tester) async{
     await tester.pumpWidget(WatchDemo());
     expect(find.byType(WatchList),findsOneWidget);
     
@@ -29,9 +31,11 @@ void main() {
     await switchToDetail(tester);
     /// after
     expect((element.widget as AnimatedCrossFade).crossFadeState,CrossFadeState.showSecond);
-
     final listview = tester.element(find.byKey(Key('WatchStackDetail')));
-    // expect((listview.widget as ScrollView).controller.offset!=0,true);  
+    
+    /// position.pixels => assert(_positions.isNotEmpty, 'ScrollController not attached to any scroll views.');
+    await tester.pump(Duration(seconds: 20));
+    expect((listview.widget as ScrollView).controller.offset!=0,true);  
   });
 }
 

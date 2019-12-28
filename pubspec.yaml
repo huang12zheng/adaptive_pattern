@@ -25,6 +25,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   responsive_layout_builder: any
   provider: any
+  firebase_ml_vision: any
+  camera: any
 
 dev_dependencies:
   flutter_test:
