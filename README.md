@@ -3,7 +3,8 @@
 A new Flutter project to Adaptive
 
 ## Getting Started
-
+ - [x] base
+   - [x] Component=Model->Dom->Layout->DeviceStrategy
  - [x] ML
    - [x] CloseMediaQueryMixin
    - [ ] test on CloseMediaQueryMixin

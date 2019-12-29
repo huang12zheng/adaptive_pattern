@@ -27,6 +27,8 @@ dependencies:
   provider: any
   firebase_ml_vision: any
   camera: any
+  extended_image: any
+  quiver: any
 
 dev_dependencies:
   flutter_test:
